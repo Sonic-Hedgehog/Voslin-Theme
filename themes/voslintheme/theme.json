@@ -1,0 +1,372 @@
+{
+    "author": "Voslin",
+    "description": "First Theme for Voslin",
+    "settings": [
+        {
+            "type": "subcategory",
+            "label": "Colors Primary",
+            "settings": [
+                {
+                    "type": "color",
+                    "label": "Primary 50",
+                    "name": "primary-50",
+                    "default": "#EDF0FF"
+                },
+                {
+                    "type": "color",
+                    "label": "Primary 100",
+                    "name": "primary-100",
+                    "default": "#C6DBFF"
+                },
+                {
+                    "type": "color",
+                    "label": "Primary 200",
+                    "name": "primary-200",
+                    "default": "#9BBEFB"
+                },
+                {
+                    "type": "color",
+                    "label": "Primary 300",
+                    "name": "primary-300",
+                    "default": "#799CD8"
+                },
+                {
+                    "type": "color",
+                    "label": "Primary 400",
+                    "name": "primary-400",
+                    "default": "#5270FD"
+                }
+            ]
+        },
+        {
+            "type": "subcategory",
+            "label": "Colors Secondary",
+            "settings": [
+                {
+                    "type": "color",
+                    "label": "Secondary 50",
+                    "name": "secondary-50",
+                    "default": "#FFFFFF"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 100",
+                    "name": "secondary-100",
+                    "default": "#FAFCFF"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 200",
+                    "name": "secondary-200",
+                    "default": "#EBEEF3"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 300",
+                    "name": "secondary-300",
+                    "default": "#BBBFD2"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 400",
+                    "name": "secondary-400",
+                    "default": "#808498"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 500",
+                    "name": "secondary-500",
+                    "default": "#606372"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 600",
+                    "name": "secondary-600",
+                    "default": "#4D4F60"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 700",
+                    "name": "secondary-700",
+                    "default": "#353741"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 800",
+                    "name": "secondary-800",
+                    "default": "#1C1C20"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 900",
+                    "name": "secondary-900",
+                    "default": "#000000"
+                }
+            ]
+        },
+        {
+            "type": "subcategory",
+            "label": "Colors Secondary (DarkMode)",
+            "settings":[
+                {
+                    "type": "color",
+                    "label": "Secondary 50",
+                    "name": "secondary-50-dark",
+                    "default": "#0B0613"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 100",
+                    "name": "secondary-100-dark",
+                    "default": "#170A24"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 200",
+                    "name": "secondary-200-dark",
+                    "default": "#2F0C4B"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 300",
+                    "name": "secondary-300-dark",
+                    "default": "#361254"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 400",
+                    "name": "secondary-400-dark",
+                    "default": "#A1A1A1"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 500",
+                    "name": "secondary-500-dark",
+                    "default": "#BDBDBD"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 600",
+                    "name": "secondary-600-dark",
+                    "default": "#D1D1D1"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 700",
+                    "name": "secondary-700-dark",
+                    "default": "#DEDEDE"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 800",
+                    "name": "secondary-800-dark",
+                    "default": "#E3E3E3"
+                },
+                {
+                    "type": "color",
+                    "label": "Secondary 900",
+                    "name": "secondary-900-dark",
+                    "default": "#FAFAFA"
+                }
+            ]   
+        },
+        {
+            "type": "subcategory",
+            "label": "Voslin Addons",
+            "settings":[
+                {
+                    "type": "checkbox",
+                    "label": "Enable Panel",
+                    "name": "panel",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Enable Website",
+                    "name": "website",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Enable Telegram",
+                    "name": "telegram-sp",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Enable Discord",
+                    "name": "discord-sp",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Enable Features",
+                    "name": "features",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Enable Tawk",
+                    "name": "enable-tawk",
+                    "default": false
+                },
+                {
+                    "type": "text",
+                    "label": "Panel Url",
+                    "name": "panel-url",
+                    "default": "#"
+                },
+                {
+                    "type": "text",
+                    "label": "Website Url",
+                    "name": "website-url",
+                    "default": "#"
+                },
+                {
+                    "type": "text",
+                    "label": "Discord Url",
+                    "name": "discord-url",
+                    "default": "#"
+                },
+                {
+                    "type": "text",
+                    "label": "Telegram Url",
+                    "name": "telegram-url",
+                    "default": "#"
+                }
+            ]
+        },
+        {
+            "type": "subcategory",
+            "label": "Voslin Theme",
+            "settings":[
+                {
+                    "type": "text",
+                    "label": "Background Url",
+                    "name": "bg-url",
+                    "default": "#"
+                }
+            ]
+        },
+        {
+            "type": "subcategory",
+            "label": "Voslin x Tawk LiveChat",
+            "settings":[
+                {
+                    "type": "text",
+                    "label": "Tawk ID",
+                    "name": "tawk-id",
+                    "default": "#"
+                },
+                {
+                    "type": "text",
+                    "label": "Tawk Widget ID",
+                    "name": "tawk-widget-id",
+                    "default": "#"
+                }
+            ]
+        },
+        {
+            "type": "subcategory",
+            "label": "Voslin Text",
+            "settings":[
+                {
+                    "type": "text",
+                    "label": "Check Category Text",
+                    "name": "order-text",
+                    "default": "ORDER"
+                },
+                {
+                    "type": "text",
+                    "label": "Text Plan info",
+                    "name": "info-plan-des",
+                    "default": "Select the game you wish to see plans for"
+                },
+                {
+                    "type": "text",
+                    "label": "Text Features info",
+                    "name": "features-info",
+                    "default": "Our Game Panel has a wide variety of features built-in"
+                }
+        ]
+        },
+        {
+            "type": "subcategory",
+            "label": "Voslin Features",
+            "settings":[
+                {
+                    "type": "checkbox",
+                    "label": "Enable Uptime",
+                    "name": "uptime",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Enable Games",
+                    "name": "games",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Enable Payment",
+                    "name": "payment",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Enable Fast Panel",
+                    "name": "fastpanel",
+                    "default": false
+                },
+                {
+                    "type": "text",
+                    "label": "Uptime",
+                    "name": "uptime-name",
+                    "default": "99.99% Uptime"
+                },
+                {
+                    "type": "text",
+                    "label": "Uptime Des",
+                    "name": "uptime-des",
+                    "default": "With 99.99% uptime you know your server is never offline."
+                },
+                {
+                    "type": "text",
+                    "label": "Games",
+                    "name": "games-name",
+                    "default": "Game Support"
+                },
+                {
+                    "type": "text",
+                    "label": "Games Des",
+                    "name": "games-des",
+                    "default": "We support Minecraft, Rust, Terraria and any order game you can think!"
+                },
+                {
+                    "type": "text",
+                    "label": "Payment",
+                    "name": "payment-name",
+                    "default": "Payment Methods"
+                },
+                {
+                    "type": "text",
+                    "label": "Payment Des",
+                    "name": "payment-des",
+                    "default": "Voslin supports Paypal, Stripe and Cryptocurrency!"
+                },
+                {
+                    "type": "text",
+                    "label": "Fast Panel",
+                    "name": "fastpanel-name",
+                    "default": "Fast Panel"
+                },
+                {
+                    "type": "text",
+                    "label": "Fast Panel Des",
+                    "name": "fastpanel-des",
+                    "default": "Our panel is the fastest panel available."
+                }
+        ]
+        }
+    ]
+}
