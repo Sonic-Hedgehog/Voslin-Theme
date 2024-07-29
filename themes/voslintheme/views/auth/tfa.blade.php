@@ -2,15 +2,8 @@
     <div class="content min-h-[50vh] flex items-center justify-center flex-col">
         <div class="flex items-center text-secondary-900 font-semibold text-lg py-4 gap-x-2">
             <x-application-logo class="w-10" />
-            {{ config('app.name', 'Voslin') }}
+            {{ config('app.name', 'Paymenter') }}
         </div>
-        <style>
-            body {
-                background-image: url("{{ config('settings::theme:bg-url', '#') }}");
-                background-size: center;
-                background-repeat: no-repeat; 
-            }
-        </style>
 
         <div class="content-box max-w-lg w-full">
             <form method="POST" action="{{ route('tfa') }}" id="tfa">

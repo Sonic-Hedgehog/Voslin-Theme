@@ -1,24 +1,11 @@
 <x-app-layout title="Invoices" clients>
-    @if(config('settings::theme:enable-tawk') == 1)
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/{{ config('settings::theme:tawk-id', '#') }}/{{ config('settings::theme:tawk-widget-id', '#') }}';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    @endif
     <x-success class="mt-4" />
     <div class="content">
         <div class="content-box content-box !p-0 overflow-hidden">
             <h2 class="text-xl font-semibold p-6">{{ __('Invoices') }}</h2>
             @if ($invoices->count() > 0)
                 <table class="w-full">
-                    <thead class="border-b-2 border-secondary-200 dark:border-secondary-50 text-secondary-600">
+                    <thead class="border-b-2 border-secondary-200 text-secondary-600">
                     <tr>
                         <th scope="col" class="text-start pl-6 py-2 text-sm font-normal">
                             {{ __('ID')}}
@@ -42,12 +29,12 @@
                         @if ($invoice->items->count() == 0)
                             @continue
                         @endif
-                        <tr class="border-b-2 border-secondary-200 dark:border-secondary-50">
+                        <tr class="@if(($loop->index + 1) < $loop->count) border-b-2 border-secondary-200 @endif">
                             <td class="pl-6 py-3">
                                 {{ $invoice->id }}
                             </td>
                             <td class="pl-6 py-3">
-                                {{ $invoice->total() }} {{ config('settings::currency_sign') }}
+                                <x-money :amount="$invoice->total()" />
                             </td>
                             <td class="pr-6 py-3">
                                 {{ $invoice->created_at }}
@@ -74,7 +61,7 @@
                             <td class="pr-6 py-3">
                                 <a href="{{ route('clients.invoice.show', $invoice->id) }}"
                                    class="button button-secondary">
-                                    {{ __('View') }}
+                                    <i class="ri-eye-line"></i> {{ __('View') }}
                                 </a>
                             </td>
                         </tr>
@@ -83,7 +70,5 @@
                 </table>
             @endif
         </div>
-    </div>
-    </div>
     </div>
 </x-app-layout>

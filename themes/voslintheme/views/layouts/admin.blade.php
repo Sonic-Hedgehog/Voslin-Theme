@@ -9,7 +9,9 @@
 
     <title>{{ 'Admin - ' . $title }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
+
+    @vite(['themes/' . config('settings::theme-active') . '/js/app.js', 'themes/' . config('settings::theme-active') . '/css/app.css'], config('settings::theme-active'))
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     @if (config('settings::app_logo'))
@@ -44,11 +46,6 @@
         });
     </script>
     <style>
-        body {
-            background-image: url("{{ config('settings::theme:bg-url', '#') }}");
-            background-size: center;
-            background-repeat: no-repeat; 
-        }
         :root {
             --secondary-50: {{ config('settings::theme:secondary-50', '#ffffff') }};
             --secondary-100: {{ config('settings::theme:secondary-100', '#fafcff') }};
@@ -69,33 +66,36 @@
         }
 
         .dark {
-            --secondary-50: {{ config('settings::theme:secondary-50-dark', '#0B0613') }};
-            --secondary-100: {{ config('settings::theme:secondary-100-dark', '#170A24') }};
-            --secondary-200: {{ config('settings::theme:secondary-200-dark', '#2F0C4B') }};
-            --secondary-300: {{ config('settings::theme:secondary-300-dark', '#361254') }};
-            --secondary-400: {{ config('settings::theme:secondary-400-dark', '#A1A1A1') }};
-            --secondary-500: {{ config('settings::theme:secondary-500-dark', '#BDBDBD') }};
-            --secondary-600: {{ config('settings::theme:secondary-600-dark', '#D1D1D1') }};
-            --secondary-700: {{ config('settings::theme:secondary-700-dark', '#DEDEDE') }};
-            --secondary-800: {{ config('settings::theme:secondary-800-dark', '#E3E3E3') }};
-            --secondary-900: {{ config('settings::theme:secondary-900-dark', '#FAFAFA') }};
+            --secondary-50: {{ config('settings::theme:secondary-50-dark', '#1E202D') }};
+            --secondary-100: {{ config('settings::theme:secondary-100-dark', '#313441') }};
+            --secondary-200: {{ config('settings::theme:secondary-200-dark', '#404351') }};
+            --secondary-300: {{ config('settings::theme:secondary-300-dark', '#4F525E') }};
+            --secondary-400: {{ config('settings::theme:secondary-400-dark', '#656874') }};
+            --secondary-500: {{ config('settings::theme:secondary-500-dark', '#7D8091') }};
+            --secondary-600: {{ config('settings::theme:secondary-600-dark', '#AEB2C2') }};
+            --secondary-700: {{ config('settings::theme:secondary-700-dark', '#CACBD2') }};
+            --secondary-800: {{ config('settings::theme:secondary-800-dark', '#F1F1F1') }};
+            --secondary-900: {{ config('settings::theme:secondary-900-dark', '#ffffff') }};
         }
     </style>
+    @rappasoftTableStyles
+    @rappasoftTableThirdPartyStyles
 </head>
 
 <body class="font-sans bg-secondary-100 dark:bg-secondary-50 text-secondary-700">
     <div id="app" class="min-h-screen">
         <x-paymenter-update />
         @if (config('settings::sidebar') == 1)
-            @include('layouts.adminnavigation')
+            @include('layouts.adminsidenavigation')
         @else
             @include('layouts.adminnavigation')
         @endif
         <main class="grow">
-            @if (!request()->routeIs('admin.index') && !request()->routeIs('admin.settings*'))
-                <div class="py-12">
+            @if (!request()->routeIs('admin.index'))
+                <div class="py-6 pb-12">
                     <div class="mx-auto max-w-8xl sm:px-6 lg:px-8">
                         <div class="overflow-hidden content">
+                            {{ Breadcrumbs::render() }}
                             <div class="content-box">
                                 {{ $slot }}
                             </div>
@@ -110,6 +110,8 @@
         <x-footer />
     </div>
     <x-success />
+    @rappasoftTableScripts
+    @rappasoftTableThirdPartyScripts
 </body>
 
 </html>

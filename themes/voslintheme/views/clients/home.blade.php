@@ -5,35 +5,20 @@
             this.error = true;
         }
     </script>
-    @if(config('settings::theme:enable-tawk') == 1)
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/{{ config('settings::theme:tawk-id', '#') }}/{{ config('settings::theme:tawk-widget-id', '#') }}';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    @endif
-    <style>
-        body {
-            background-image: url("{{ config('settings::theme:bg-url', '#') }}");
-            background-size: center;
-            background-repeat: no-repeat;
-        }
-    </style>
     <div class="content">
         <x-success class="mt-4" />
         <div class="grid grid-cols-12 gap-4">
             <div class="col-span-12 relative">
                 <div class="bottom-0 top-0 right-0 left-0 flex absolute z-0 rounded-xl" id="particlesjs"></div>
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 w-12 h-12" style="display: none;">
-                            <img class="w-8 h-8 rounded-md" style="align-self: center; width: 3rem; height: 3rem;"
-                                src="https://www.gravatar.com/avatar/{{ md5(Auth::user()->email) }}?s=200&d=mp" />
+                    <div class="bg-primary-400 p-4 rounded-xl text-white">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-12 h-12" style="display: none;">
+                                <img class="w-8 h-8 rounded-md" style="align-self: center; width: 3rem; height: 3rem;"
+                                    src="https://www.gravatar.com/avatar/{{ md5(Auth::user()->email) }}?s=200&d=mp" />
+                            </div>
+                            <div class="ml-4 text-lg font-semibold leading-7">
+                                {{ __('Welcome back') }}, {{ Auth::user()->name }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,16 +33,7 @@
                             @if (count($invoices) === 0)
                                 <div class="text-center">
                                     <p class="text-primary-300 dark:text-primary-400 font-bold text-lg mt-2">
-                                        {{ __('First name') }}!{{__(' No invoices to pay')}}
-                                    </p>
-                                </div>
-                            @endif
-                            @if (config('settings::credits'))
-                                <div class="text-center">
-                                    <br>
-                                    <hr>
-                                    <p style="color: white;" class="text-primary-300 dark:text-primary-400 font-bold text-lg mt-2">
-                                        {{__('Credit:')}} {{ config('settings::currency_sign') }} {{ Auth::user()->formattedCredits() }}
+                                        {{__('Hurray! No invoices to pay')}}
                                     </p>
                                 </div>
                             @endif
@@ -71,10 +47,12 @@
                                                 <span class="font-semibold">{{ __('Invoice ID') }}:</span>
                                                 <span class="font-semibold">{{ $invoice->id }}</span>
                                                 <div class="w-full text-sm text-gray-400 truncate">
-                                                    <span class="font-semibold">{{__('Amount to pay')}} - {{ $invoice->total() }} {{ config('settings::currency_sign') }}</span>
+                                                    <span class="font-semibold">{{__('Amount to pay')}} -
+                                                        <x-money :amount="$invoice->total()" />
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <div class="justify-end flex text-center text-primary-400 my-auto button button-primary text-md w-fit py-[5px] px-[8px]">
+                                            <div class="justify-end flex text-center my-auto button button-primary text-md w-fit py-[5px] px-[8px]">
                                                 <b>{{__('View')}}</b>
                                             </div>
                                         </div>
@@ -103,20 +81,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @php
-                                $i = 0
-                            @endphp
                                 @if (count($services) > 0)
                                     @foreach ($services as $service)
+                                        @php($loop1 = $loop)
                                         @foreach ($service->products as $product2)
-                                            @php
-                                                $product = $product2->product;
-                                                $i++
-                                            @endphp
+                                            @php($product = $product2->product)
                                             @if($product2->status === 'cancelled')
                                                 @continue
                                             @endif
-                                            <tr class="@if(count($services) > $i) border-b-2 border-secondary-200 @endif">
+                                            <tr class="@if($loop1->index < ($loop1->count - $loop->count )) border-b-2 border-secondary-200 @endif">
                                                 <td class="pl-6 py-3 items-center break-all max-w-fit">
                                                     <div class="flex">
                                                         <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-8 h-8 md:w-12 md:h-12 my-auto rounded-md"
@@ -125,10 +98,10 @@
                                                     </div>
                                                 </td>
                                                 <td class="py-3 hidden md:table-cell" data-order="0.00">
-                                                    {{ $product2->price !== '0.00' && $product2->price ? $product2->price . " " . config('settings::currency_sign') : __('Free') }}
+                                                    <x-money :amount="$product2->price" />
                                                 </td>
                                                 <td class="py-3 hidden md:table-cell">
-                                                    {{ $product2->expiry_date ? $product2->expiry_date->toDateString() : __('Never') }}
+                                                    {{ $product2->expiry_date ? $product2->expiry_date->toDateString() : __('Doesn\'t Expire') }}
                                                 </td>
                                                 <td class="py-3 hidden md:table-cell">
                                                     <div class="font-bold rounded-md text-left">
@@ -169,7 +142,7 @@
 
                                     </tr>
                                     <tr class="w-full">
-                                        <td colspan="4" class="w-full dark:text-primary-400 font-bold text-lg text-center dark:bg-secondary-100">
+                                        <td colspan="4" class=" pt-5 w-full dark:text-primary-400 font-bold text-lg text-center dark:bg-secondary-100">
                                             {{ __('No services found.') }}
                                         </td>
                                     </tr>
