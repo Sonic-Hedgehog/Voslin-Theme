@@ -9,7 +9,7 @@ Follow these steps to install the Voslin Theme:
 
 1. Clone the repository or download the files:
    ```bash
-   git clone https://github.com/your-username/voslin-theme.git
+   git clone https://github.com/sonic-hedgehog/voslin-theme.git
    ```
 2. Copy the downloaded folder into the Paymenter directory.
 3. Navigate to the root directory of your Paymenter installation and run the following command:
