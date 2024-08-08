@@ -191,7 +191,7 @@
             <br>
             <div class="grid grid-cols-12 gap-4">
                 @foreach ($categories as $category)
-                    @if ($category->products->count() > 0)
+                    @if (($category->products()->where('hidden', false)->count() > 0 && !$category->category_id) || $category->children()->count() > 0)
                         <div class="lg:col-span-3 md:col-span-6 col-span-12">
                             <div class="content-box h-full flex flex-col">
                                 <h3 style="text-align: center;" class="font-semibold text-lg">{{ $category->name }}</h3>
