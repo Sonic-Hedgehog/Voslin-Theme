@@ -194,10 +194,15 @@
                     @if (($category->products()->where('hidden', false)->count() > 0 && !$category->category_id) || $category->children()->count() > 0)
                         <div class="lg:col-span-3 md:col-span-6 col-span-12">
                             <div class="content-box h-full flex flex-col">
-                                <h3 style="text-align: center;" class="font-semibold text-lg">{{ $category->name }}</h3>
-                                <br>
-                                <h4>{{ $category->description }}</h4>
-                                <br>
+                                <div class="flex gap-x-3 items-center mb-2">
+                                    @if($category->image)
+                                        <img src="/storage/categories/{{ $category->image }}" class="w-14 h-full rounded-md" onerror="removeElement(this);" />
+                                    @endif
+                                    <div>
+                                        <h3 class="font-semibold text-lg">{{ $category->name }}</h3>
+                                    </div>
+                                </div>
+                                <div class="prose dark:prose-invert">@markdownify($category->description)</div>
                                 <div class="pt-3 mt-auto">
                                     <style>
                                         .voslin:hover {
@@ -206,13 +211,12 @@
                                         }
                                     </style>
                                     <a href="{{ route('products', $category->slug) }}"
-                                    class="button button-secondary w-full voslin">{{ config('settings::theme:order-text', 'ORDER') }}</a>
+                                    class="button button-secondary w-full voslin">{{ __('Browse Category') }}</a>
                                 </div>
                             </div>
                         </div>
                     @endif
                 @endforeach
-
             </div>
         </div>
     @endif
