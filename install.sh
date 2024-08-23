@@ -173,7 +173,7 @@ install_theme() {
 
     # Move the contents from tmp/themes/ to /var/www/paymenter/themes
     echo -e "${YELLOW}Moving theme files to $THEME_DIR...${NC}"
-    mv "$TMP_DIR/themes/"* $THEME_DIR/..
+    mv "$TMP_DIR/themes/"* "$PAYMENTER_DIR"/themes
 
     # Check if the move was successful
     if [ $? -ne 0 ]; then
