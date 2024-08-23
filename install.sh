@@ -145,7 +145,7 @@ install_dependencies() {
 # Function to download and install the theme
 install_theme() {
     
-    TMP_DIR="$SCRIPT_DIR/tmp"
+    TMP_DIR="$SCRIPT_DIR/Installer_tmp"
     
     if [ -d "$TMP_DIR" ]; then
         echo -e "${YELLOW}${BOLD}The directory '$TMP_DIR' already exists.${NC}"
