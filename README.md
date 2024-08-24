@@ -3,7 +3,34 @@
 
 Voslin Theme is a design for Paymenter, developed by L4oySt0rm and optimized by sonic.hedgehog. This project provides a stylish and functional user interface for the Paymenter panel.
 
-## Installation
+## Simple installation
+
+Installing the Voslin Theme is straightforward and can be completed quickly by following these steps:
+
+1. **Run the installation script:**
+
+   Open a terminal and execute the following command:
+
+   ```bash
+   sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Sonic-Hedgehog/Voslin-Theme/main/install.sh)"
+   ```
+   After entering the command, follow the instructions that appear in the terminal to complete the installation.
+
+2. **Access the Paymenter Admin Panel:**
+
+   After the installation, navigate to the admin panel of your Paymenter application. Click on the three dots in the top-right menu, then select "Settings." Enter your admin password to access the settings.
+
+3. **Adjust theme settings:**
+
+   Go to the "Theme Settings" section and ensure that the Voslin Theme is selected as the active theme. Scroll down and enable all the settings that are relevant to your setup.
+
+4. **Save changes:**
+
+   Scroll to the bottom of the page and click "Save" to apply the changes.
+
+With this, the basic installation of the Voslin Theme is complete. You can now further customize the theme settings as needed.
+
+## Manual Installation
 
 Follow these steps to install the Voslin Theme:
 
